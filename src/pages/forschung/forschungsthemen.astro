@@ -1,0 +1,92 @@
+---
+import PageShell from '../../components/PageShell.astro'
+
+const topicGroups = [
+  {
+    heading: 'Angioödem',
+    topics: [
+      { label: 'Hereditäres Angioödem', href: '/forschung/forschungsthemen/angiooedem/hereditaeres-angiooedem-typ-iii/' },
+      { label: 'ACE-Hemmer/ Angiotensin-Rezeptor-Blocker induziertes Angioödem', href: '/forschung/forschungsthemen/angiooedem/ace-hemmer-angiotensin-rezeptor-blocker-induziertes-angiooedem/' },
+    ],
+  },
+  { heading: 'Brain Genomics', topics: [{ label: 'Brain Genomics', href: '/forschung/forschungsthemen/brain-genomics/' }] },
+  { heading: 'Demenzerkrankungen', topics: [{ label: 'Demenz', href: '/forschung/forschungsthemen/demenzerkrankungen/' }] },
+  {
+    heading: 'Fehlbildungen',
+    topics: [
+      { label: 'Kraniofaziale Genomik', href: '/forschung/forschungsthemen/angeborene-fehlbildungen/kraniofaziale-genomik/' },
+      { label: 'Lippen-Kiefer-Gaumenspalten', href: '/forschung/forschungsthemen/angeborene-fehlbildungen/lippen-kiefer-gaumenspalten/' },
+      { label: 'Ösophagusatresie', href: '/forschung/forschungsthemen/angeborene-fehlbildungen/oesophagusatresie/' },
+      { label: 'Uro-Rektale Fehlbildungen', href: '/forschung/forschungsthemen/angeborene-fehlbildungen/fehlbildungen-von-lunge-gastrointestinal-urogenitaltrakt/' },
+    ],
+  },
+  {
+    heading: 'Immunologische Erkrankungen',
+    topics: [
+      { label: 'Achalasie', href: '/forschung/forschungsthemen/achalasie/' },
+      { label: 'Host Genetics', href: '/forschung/forschungsthemen/immunologische-erkrankungen/host-genetics/' },
+    ],
+  },
+  {
+    heading: 'Haarlosigkeiten/Haarausfall',
+    topics: [
+      { label: 'Androgenetische Alopezie', href: '/forschung/forschungsthemen/haarlosigkeiten-haarausfall/androgenetische-alopezie/' },
+      { label: 'Kreisrunder Haarausfall', href: '/forschung/forschungsthemen/haarlosigkeiten-haarausfall/kreisrunder-haarausfall/' },
+      { label: 'Monogene Alopezien', href: '/forschung/forschungsthemen/haarlosigkeiten-haarausfall/monogene-alopezien/' },
+    ],
+  },
+  { heading: 'Genomic Imaging', topics: [{ label: 'Genomic Imaging', href: '/forschung/forschungsthemen/genomic-imaging/' }] },
+  { heading: 'Genomik von Verhalten u. psychischen Störungen', topics: [{ label: 'Genomik von Verhalten und psychischen Störungen', href: '/forschung/forschungsthemen/genomik-von-verhalten-und-psychischen-stoerungen/' }] },
+  {
+    heading: 'Krebserkrankungen',
+    topics: [
+      { label: 'Erblicher Darmkrebs', href: '/forschung/forschungsthemen/krebserkrankungen/erblicher-darmkrebs/' },
+      { label: 'Magenkarzinom', href: '/forschung/forschungsthemen/krebserkrankungen/magenkarzinom/' },
+      { label: 'Barett-Ösophagus', href: '/forschung/forschungsthemen/krebserkrankungen/barett-oesophagus/' },
+    ],
+  },
+  { heading: 'Lese-Rechtschreibstörung', topics: [{ label: 'Lese und Rechtschreibstörung', href: '/forschung/forschungsthemen/lese-rechtschreibstoerung/' }] },
+  { heading: 'Mastzellerkrankungen', topics: [{ label: 'Mastzellenerkrankungen', href: '/forschung/forschungsthemen/mastzellerkrankungen/' }] },
+  { heading: 'Pharmakogenomik', topics: [{ label: 'Forschungskonzept', href: '/forschung/forschungsthemen/pharmakogenomik/' }] },
+  { heading: 'Psychomotorische Entwicklungsstörung', topics: [{ label: 'Psychomotorische Entwicklungsstörung', href: '/forschung/forschungsthemen/psychomotorische-entwicklungsstoerung/' }] },
+  { heading: 'Translationale Pharmakogenetik', topics: [{ label: 'Translationale Pharmakogenetik', href: '/forschung/forschungsthemen/translationale-pharmakogenetik/' }] },
+]
+---
+
+<PageShell
+  activeHref="/forschung/"
+  breadcrumbs={[
+    { label: 'Start', href: '/' },
+    { label: 'Forschung', href: '/forschung/' },
+    { label: 'Forschungsthemen' },
+  ]}
+  title="Forschungsthemen - Institut für Humangenetik"
+>
+  <section style="background-color: #ffffff; padding-top: 40px; padding-bottom: 40px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+      <h1 style="font-size: 26px; font-weight: 400; color: rgb(0, 81, 158); margin-bottom: 32px;">
+        Forschungsthemen
+      </h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px;">
+        {topicGroups.map(group => (
+          <div>
+            <h3
+              style="font-size: 15px; font-weight: 700; color: rgb(0, 81, 158); margin-bottom: 8px; border-bottom: 1px solid rgb(225, 225, 225); padding-bottom: 6px;"
+            >
+              {group.heading}
+            </h3>
+            <ul style="list-style: disc; padding-left: 18px; margin: 0;">
+              {group.topics.map(topic => (
+                <li style="font-size: 14px; color: rgb(81, 81, 81); margin-bottom: 4px;">
+                  <a href={topic.href} style="color: rgb(0, 81, 158); text-decoration: none;" class="hover:underline">
+                    {topic.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageShell>

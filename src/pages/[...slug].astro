@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content'
+import PageShell from '../components/PageShell.astro'
+import ContentPage from '../components/ContentPage.astro'
+import CategoryCards from '../components/CategoryCards.astro'
+
+export async function getStaticPaths() {
+  const allPages = await getCollection('pages')
+  return allPages.map(entry => {
+    const parts = entry.id.split('/')
+    const isIndex = parts[parts.length - 1] === 'index'
+    const slug = isIndex ? parts.slice(0, -1).join('/') : entry.id
+    return {
+      params: { slug },
+      props: { entry },
+    }
+  })
+}
+
+const { entry } = Astro.props
+const fm = entry.data
+const { Content } = await render(entry)
+
+const introParas =
+  fm.type === 'landing'
+    ? Array.isArray(fm.intro)
+      ? fm.intro
+      : fm.intro
+        ? [fm.intro]
+        : []
+    : []
+---
+
+{fm.type === 'landing' ? (
+  <PageShell
+    activeHref={fm.activeHref}
+    breadcrumbs={fm.breadcrumbs}
+    title={`${fm.title} - Institut für Humangenetik`}
+  >
+    <section style="background-color: #ffffff; padding-top: 40px; padding-bottom: 32px;">
+      <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+        <h1 style="font-size: 26px; font-weight: 400; color: rgb(0, 81, 158); margin-bottom: 20px;">
+          {fm.title}
+        </h1>
+        {introParas.map(para => (
+          <p
+            style="font-size: 14px; color: rgb(81, 81, 81); line-height: 1.6; margin-bottom: 12px;"
+            set:html={para}
+          />
+        ))}
+      </div>
+    </section>
+    <CategoryCards columns={fm.columns ?? 3} cards={fm.cards ?? []} />
+  </PageShell>
+) : (
+  <PageShell
+    activeHref={fm.activeHref}
+    breadcrumbs={fm.breadcrumbs}
+    title={`${fm.title} - Institut für Humangenetik`}
+  >
+    <ContentPage title={fm.title}>
+      <Content />
+    </ContentPage>
+  </PageShell>
+)}

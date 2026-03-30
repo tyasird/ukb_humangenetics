@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro'
+import SiteHeader from './SiteHeader.astro'
+import NavBar from './NavBar'
+import Breadcrumb from './Breadcrumb.astro'
+import SiteFooter from './SiteFooter.astro'
+
+interface Props {
+  activeHref: string
+  breadcrumbs: { label: string; href?: string }[]
+  title?: string
+}
+
+const { activeHref, breadcrumbs, title } = Astro.props
+---
+
+<Layout title={title}>
+  <SiteHeader />
+  <NavBar activeHref={activeHref} client:load />
+  <main>
+    <Breadcrumb items={breadcrumbs} />
+    <slot />
+  </main>
+  <SiteFooter />
+</Layout>

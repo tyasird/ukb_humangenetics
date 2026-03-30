@@ -1,0 +1,53 @@
+---
+import PageShell from '../../components/PageShell.astro'
+import ContentPage from '../../components/ContentPage.astro'
+
+const doctors = [
+  { name: 'Prof. Dr. med. Markus M. Nöthen', role: 'Direktor, Facharzt für Humangenetik', tel: 'BMZ: 0228–287–51101 | Genomics: 0228–6885–400', email: 'markus.noethen@uni-bonn.de' },
+  { name: 'PD Dr. med. Elisabeth Mangold', role: 'Leitende Oberärztin, Fachärztin für Humangenetik', tel: 'BMZ: 0228–287–51008', email: 'e.mangold@uni-bonn.de' },
+  { name: 'Dr. med. Dipl.-Biol. Martina Kreiß', role: 'Oberärztin, Fachärztin für Humangenetik, Diplom-Biologin', tel: 'BMZ: 0228–287–51007', email: 'm.kreiss@uni-bonn.de' },
+  { name: 'Prof. Dr. med. Stefan Aretz', role: 'Oberarzt, Facharzt für Humangenetik', tel: 'BMZ: 0228–287–51009', email: 'stefan.aretz@uni-bonn.de' },
+  { name: 'Prof. Dr. med. Regina Betz', role: 'Fachärztin für Humangenetik', tel: 'BMZ: 0228–287–51023', email: 'regina.betz@uni-bonn.de' },
+  { name: 'Prof. Dr. med. Andreas Forstner', role: 'Facharzt für Humangenetik, Professur Brain Genomics', tel: 'BMZ: 0228–287–51733 | Genomics: 0228–6885–412', email: 'forstner@uni-bonn.de' },
+  { name: 'Dr. med. Claudia Perne', role: 'Fachärztin für Humangenetik', tel: '', email: 'claudia.perne@ukbonn.de' },
+  { name: 'Dr. med. Isabel Spier', role: 'Fachärztin für Humangenetik', tel: '', email: 'isabel.spier@uni-bonn.de' },
+  { name: 'Dr. med. Felix Marbach', role: 'Facharzt für Humangenetik', tel: 'BMZ: 0228–287–51032', email: 'felix.marbach@ukbonn.de' },
+  { name: 'PD Dr. med. Anne Elise Marie Zaremba', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–51014', email: 'anne.zaremba@mvz-venusberg.eu' },
+  { name: 'Dr. med. Sheetal Kumar', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–51626', email: 'sheetal.kumar@ukbonn.de' },
+  { name: 'Dr. med. Hellen Lesmann', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–51629', email: 'hellen.lesmann@ukbonn.de' },
+  { name: 'Dr. med. Axel Schmidt', role: 'Assistenzarzt', tel: 'BMZ: 0228–287–51276', email: 'axel.schmidt@ukbonn.de' },
+  { name: 'Amalia Nicole Nanciu', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–51075', email: 'amalia.nanciu@ukbonn.de' },
+  { name: 'Dr. med. Anne-Marie Folliot', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–52541', email: 'anne-marie.folliot@ukbonn.de' },
+  { name: 'Dr. med. Laura Grohs', role: 'Assistenzärztin', tel: 'BMZ: 0228–287–52540', email: 'laura.grohs@ukbonn.de' },
+  { name: 'Dr. med. Nils Braun', role: 'Assistenzarzt', tel: 'BMZ: 0228–287–51627', email: 'nils.braun@ukbonn.de' },
+]
+---
+
+<PageShell
+  activeHref="/beratung/"
+  breadcrumbs={[
+    { label: 'Start', href: '/' },
+    { label: 'Beratung', href: '/beratung/' },
+    { label: 'Unsere Ärztinnen und Ärzte' },
+  ]}
+  title="Unsere Ärztinnen und Ärzte - Institut für Humangenetik"
+>
+  <ContentPage title="Unsere Ärztinnen & Ärzte">
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: rgb(81, 81, 81);">
+        <tbody>
+          {doctors.map((doc, i) => (
+            <tr style={`background-color: ${i % 2 === 0 ? '#f7f7f7' : '#ffffff'}; border-bottom: 1px solid #e8e8e8;`}>
+              <td style="padding: 10px 12px; font-weight: 700;">{doc.name}</td>
+              <td style="padding: 10px 12px;">{doc.role}</td>
+              <td style="padding: 10px 12px;">{doc.tel}</td>
+              <td style="padding: 10px 12px;">
+                <a href={`mailto:${doc.email}`} style="color: rgb(0, 81, 158);">{doc.email}</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </ContentPage>
+</PageShell>

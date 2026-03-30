@@ -1,0 +1,42 @@
+---
+const footerLinks = [
+  { label: 'Übersicht', href: '#' },
+  { label: 'Akkreditierung', href: '/akkreditierung/' },
+  { label: 'Impressum', href: '/impressum/' },
+  { label: 'Datenschutz', href: '/datenschutz/' },
+  { label: 'Anmelden', href: '#' },
+]
+---
+
+<footer
+  style="background-color: #ffffff; border-top: 1px solid rgb(225, 225, 225); padding-top: 20px; padding-bottom: 20px;"
+>
+  <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+    <div class="flex flex-wrap justify-between items-center gap-5 max-sm:flex-col max-sm:items-start">
+      <div>
+        <img
+          src="/images/logo-institut.png"
+          alt="UKB – Universitätsklinikum Bonn"
+          style="height: 40px; width: auto;"
+        />
+        <p style="font-size: 11px; color: rgb(81, 81, 81); margin-top: 8px;">
+          © 2026 Institut für Humangenetik.
+        </p>
+      </div>
+      <nav style="font-size: 14px; color: rgb(81, 81, 81);">
+        {footerLinks.map((link, index) => (
+          <span>
+            {index > 0 && <span style="color: rgb(81, 81, 81);"> | </span>}
+            <a
+              href={link.href}
+              style="color: rgb(81, 81, 81); text-decoration: none;"
+              class="hover:underline"
+            >
+              {link.label}
+            </a>
+          </span>
+        ))}
+      </nav>
+    </div>
+  </div>
+</footer>

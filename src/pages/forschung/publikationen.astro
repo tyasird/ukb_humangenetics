@@ -1,0 +1,36 @@
+---
+import PageShell from '../../components/PageShell.astro'
+
+const years = [2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010]
+---
+
+<PageShell
+  activeHref="/forschung/"
+  breadcrumbs={[
+    { label: 'Start', href: '/' },
+    { label: 'Forschung', href: '/forschung/' },
+    { label: 'Publikationen' },
+  ]}
+  title="Publikationen - Institut für Humangenetik"
+>
+  <section style="background-color: #ffffff; padding-top: 40px; padding-bottom: 40px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+      <h1 style="font-size: 26px; font-weight: 400; color: rgb(0, 81, 158); margin-bottom: 24px;">
+        Publikationen
+      </h1>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        {years.map(year => (
+          <li style="border-bottom: 1px solid rgb(225, 225, 225); padding: 10px 0;">
+            <a
+              href={`/forschung/publikationen/publikationen-${year}/`}
+              style="font-size: 14px; color: rgb(0, 81, 158); text-decoration: none; font-weight: 400;"
+              class="hover:underline"
+            >
+              Publikationen {year}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</PageShell>

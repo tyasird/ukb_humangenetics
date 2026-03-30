@@ -1,0 +1,50 @@
+---
+interface CardData {
+  imageSrc: string
+  imageAlt: string
+  imageWidth: number
+  imageHeight: number
+  title: string
+  href: string
+}
+
+interface Props {
+  cards: CardData[]
+  columns?: 2 | 3 | 4
+}
+
+const { cards, columns = 3 } = Astro.props
+
+const gridCols =
+  columns === 4
+    ? 'grid-cols-2 min-[960px]:grid-cols-4'
+    : columns === 2
+      ? 'grid-cols-1 min-[640px]:grid-cols-2'
+      : 'grid-cols-1 min-[640px]:grid-cols-2 min-[960px]:grid-cols-3'
+---
+
+<section style="background-color: #ffffff; padding-bottom: 40px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+    <div class={`grid ${gridCols} gap-5`}>
+      {cards.map(card => (
+        <div>
+          <a href={card.href} style="display: block; text-decoration: none;">
+            <img
+              src={card.imageSrc}
+              alt={card.imageAlt}
+              width={card.imageWidth}
+              height={card.imageHeight}
+              style="width: 100%; height: auto; display: block;"
+            />
+            <p
+              style="margin-top: 8px; font-size: 14px; color: rgb(0, 81, 158); font-weight: 400; line-height: 1.4;"
+              class="hover:underline"
+            >
+              {card.title}
+            </p>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

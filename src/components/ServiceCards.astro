@@ -1,0 +1,27 @@
+---
+const cards = [
+  { src: '/images/btn-humangenetische-beratung.png', href: '/beratung/', label: 'Humangenetische Beratung' },
+  { src: '/images/btn-diagnostik.png', href: '/diagnostik/', label: 'Diagnostik' },
+  { src: '/images/btn-forschung.png', href: '/forschung/', label: 'Forschung' },
+  { src: '/images/btn-video-sprechstunde.png', href: '#', label: 'Video-Sprechstunde' },
+]
+---
+
+<section style="background-color: #ffffff; padding-bottom: 40px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+    <div class="grid grid-cols-2 min-[960px]:grid-cols-4 gap-5">
+      {cards.map(card => (
+        <a href={card.href} style="display: block;" class="group">
+          <img
+            src={card.src}
+            alt={card.label}
+            width="302"
+            height="100"
+            style="width: 100%; height: auto; display: block; border: none; border-radius: 0; transition: opacity 0.2s ease;"
+            class="group-hover:opacity-85"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

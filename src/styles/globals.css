@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-input: var(--input);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  /* UKB Institut für Humangenetik color tokens */
+  --ukb-blue: rgb(0, 81, 158);
+  --ukb-blue-dark: rgb(0, 65, 130);
+  --ukb-blue-active: rgb(0, 70, 140);
+  --ukb-text: rgb(81, 81, 81);
+  --ukb-muted-bg: rgb(247, 247, 247);
+  --ukb-link: rgb(0, 81, 158);
+  --ukb-border: rgb(225, 225, 225);
+
+  /* Font variable for backwards compat */
+  --font-lato: 'Lato';
+
+  /* shadcn tokens mapped to UKB palette */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.33 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.33 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.33 0 0);
+  --primary: oklch(0.37 0.12 250);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.33 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.33 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.37 0.12 250);
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ukb-text);
+    background-color: #ffffff;
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+    color: var(--ukb-blue);
+    font-weight: 400;
+  }
+  h1 { font-size: 26px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  a {
+    color: var(--ukb-link);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ── Prose styles for markdown-rendered content ───────────────────────────── */
+.content-prose h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ukb-blue);
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.content-prose h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ukb-text);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.content-prose p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.content-prose ul,
+.content-prose ol {
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+.content-prose li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.content-prose li > ul,
+.content-prose li > ol {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.content-prose a {
+  color: var(--ukb-blue);
+  text-decoration: none;
+}
+.content-prose a:hover {
+  text-decoration: underline;
+}
+.content-prose strong {
+  font-weight: 700;
+}
+.content-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+.content-prose th {
+  background-color: var(--ukb-blue);
+  color: #ffffff;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 700;
+}
+.content-prose td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+.content-prose tr:nth-child(even) td {
+  background-color: var(--ukb-muted-bg);
+}
+
+/* UKB utility classes */
+.ukb-blue-bg { background-color: var(--ukb-blue); }
+.ukb-muted-bg { background-color: var(--ukb-muted-bg); }
+.ukb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}

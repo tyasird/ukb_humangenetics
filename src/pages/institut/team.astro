@@ -1,0 +1,95 @@
+---
+import PageShell from '../../components/PageShell.astro'
+import ContentPage from '../../components/ContentPage.astro'
+
+const staff = [
+  { name: 'Abdolahzadeh, Hadis, M.Sc.', email: 'hadis.abdolahzadeh@ukbonn.de', telBMZ: '0228 – 287 – 51069', telGenomics: '' },
+  { name: 'Alawathurage, Tharindu Madhusankha, M.Sc.', email: 'tharindu.madhusankha@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 –' },
+  { name: 'Aldisi, Dr. Rana, PhD', email: 'raldisi@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 487' },
+  { name: 'Aretz, Prof. Dr. med. Stefan', email: 'stefan.aretz@uni-bonn.de', telBMZ: '0228 – 287 – 51009', telGenomics: '' },
+  { name: 'Armborst, Sarah, B.Sc.', email: 'armborst@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 436' },
+  { name: 'Auer, Sandra', email: 'sandra.auer@ukbonn.de', telBMZ: '0228 – 287 – 51000', telGenomics: '' },
+  { name: 'Barth, Sandra', email: 'sbarth@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 436' },
+  { name: 'Basmanav, Dr. rer. nat. Buket', email: 'basmanav.buket@ukbonn.de', telBMZ: '0228 – 287 – 54774', telGenomics: '' },
+  { name: 'Beins, Dr. rer. nat. Eva', email: 'eva.beins@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 432' },
+  { name: 'Betz, Prof. Dr. med. Regina', email: 'regina.betz@uni-bonn.de', telBMZ: '0228 – 287 – 51023', telGenomics: '' },
+  { name: 'Billmann, Jun.-Prof. Dr. rer. nat. Maximilian', email: 'm.billmann@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 418' },
+  { name: 'Braun, Dr. med. Nils', email: 'nils.braun@ukbonn.de', telBMZ: '0228 – 287 – 51627', telGenomics: '' },
+  { name: 'Breuer, Verena, M.Sc.', email: 'verena.breuer@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 117' },
+  { name: 'Bröckelmann, Meike, M.Sc.', email: 'meike.broeckelmann@ukbonn.de', telBMZ: '', telGenomics: '0228 – 6885 –' },
+  { name: 'Cesarato, Dr. Nicole, PhD', email: 'nicole.cesarato@ukbonn.de', telBMZ: '0228 – 287 – 51494', telGenomics: '' },
+  { name: 'David, Dr. Friederike, PhD', email: 'friederike.david@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 434' },
+  { name: 'Deeva, Jana', email: 'jana.deeva@ukbonn.de', telBMZ: '', telGenomics: '0151 – 16857772' },
+  { name: 'Demirtas, Yasir, M.Sc.', email: 'yasir.demirtas@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 419' },
+  { name: 'Engels, Dr. rer. nat. Hartmut', email: 'hartmut.engels@uni-bonn.de', telBMZ: '0228 – 287 – 51055', telGenomics: '' },
+  { name: 'Engels, Dr. rer. nat. Eva', email: 'eva.engels@uni-bonn.de', telBMZ: '0228 – 287 – 51052', telGenomics: '' },
+  { name: 'Ergang, Christina', email: 'christina.ergang@ukbonn.de', telBMZ: '0228 – 287 – 51058', telGenomics: '' },
+  { name: 'Fischer, Christine', email: 'christine.fischer@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 400' },
+  { name: 'Folliot, Dr. med. Anne-Marie', email: 'anne-marie.folliot@ukbonn.de', telBMZ: '0228 – 287 – 52541', telGenomics: '' },
+  { name: 'Forstner, Prof. Dr. med. Andreas', email: 'forstner@uni-bonn.de', telBMZ: '0228 – 287 – 51733', telGenomics: '0228 – 6885 – 412' },
+  { name: 'Grohs, Dr. med. Laura', email: 'laura.grohs@ukbonn.de', telBMZ: '0228 – 287 – 52540', telGenomics: '' },
+  { name: 'Heggemann, Dr. agr. Julia, PhD', email: 'julia.heggemann@uni-bonn.de', telBMZ: '', telGenomics: '0228 6885 – 435' },
+  { name: 'Heilmann-Heimbach, PD Dr. rer. nat. Stefanie', email: 'sheilman@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 423' },
+  { name: 'Heinen, Regina', email: 'regina.heinen@ukbonn.de', telBMZ: '0228 – 287 – 51058', telGenomics: '' },
+  { name: 'Hoffmann, Dr. rer. nat. Per', email: 'p.hoffmann@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 404' },
+  { name: 'Hundertmark, Hela, M.Sc.', email: 'hela.hundertmark@uni-bonn.de', telBMZ: '0228 – 287 – 51053', telGenomics: '' },
+  { name: 'Kayser, Christiane', email: 'christiane.kayser@ukbonn.de', telBMZ: '0228 – 287 – 51000', telGenomics: '' },
+  { name: 'Kreiß, Dr. med. Dipl.-Biol. Martina', email: 'm.kreiss@uni-bonn.de', telBMZ: '0228 – 287 – 51007', telGenomics: '' },
+  { name: 'Kumar, Dr. med. Sheetal', email: 'sheetal.kumar@ukbonn.de', telBMZ: '0228 – 287 – 51626', telGenomics: '' },
+  { name: 'Laufenberg, Iris', email: 'iris.laufenberg@ukbonn.de', telBMZ: '0228 – 287 – 51080', telGenomics: '' },
+  { name: 'Lesmann, Dr. med. Hellen', email: 'hellen.lesmann@ukbonn.de', telBMZ: '0228 – 287 – 51629', telGenomics: '' },
+  { name: 'Ludwig, Prof. Dr. rer. nat. Kerstin', email: 'kerstin.ludwig@uni-bonn.de', telBMZ: '', telGenomics: '0228 – 6885 – 420' },
+  { name: 'Mangold, PD Dr. med. Elisabeth', email: 'e.mangold@uni-bonn.de', telBMZ: '0228 – 287 – 51008', telGenomics: '' },
+  { name: 'Marbach, Dr. med. Felix', email: 'felix.marbach@ukbonn.de', telBMZ: '0228 – 287 – 51032', telGenomics: '' },
+  { name: 'Meyer, Dr. rer. nat. Esther', email: 'esther.meyer@ukbonn.de', telBMZ: '0228 – 287 – 51035', telGenomics: '' },
+  { name: 'Müller, Carmen', email: 'carmen.mueller@ukbonn.de', telBMZ: '0228 – 287 – 51058', telGenomics: '' },
+  { name: 'Nöthen, Prof. Dr. med. Markus M.', email: 'markus.noethen@uni-bonn.de', telBMZ: '0228 – 287 – 51101', telGenomics: '0228 – 6885 – 400' },
+  { name: 'Raff, Dr. rer. nat. Ruth', email: 'raff@uni-bonn.de', telBMZ: '0228 – 287 – 51010', telGenomics: '' },
+  { name: 'Schmidt, Dr. med. Axel', email: 'axel.schmidt@ukbonn.de', telBMZ: '0228 – 287 – 51276', telGenomics: '' },
+  { name: 'Schwanitz, Prof. Dr. rer. nat. Gesa', email: 'schwanitzg@web.de', telBMZ: '0228 – 287 – 51051', telGenomics: '' },
+  { name: 'Spier, Dr. med. Isabel', email: 'isabel.spier@uni-bonn.de', telBMZ: '', telGenomics: '' },
+  { name: 'Zaremba, PD Dr. med. Anne Elise Marie', email: 'anne.zaremba@mvz-venusberg.eu', telBMZ: '0228 – 287 – 51014', telGenomics: '' },
+]
+---
+
+<PageShell
+  activeHref="/institut/"
+  breadcrumbs={[
+    { label: 'Start', href: '/' },
+    { label: 'Institut', href: '/institut/' },
+    { label: 'Mitarbeiter' },
+  ]}
+  title="Mitarbeiter - Institut für Humangenetik"
+>
+  <ContentPage title="Mitarbeiter">
+    <p style="margin-bottom: 16px;">
+      Telefonnummern – Biomedizinischen Zentrum (BMZ) und Forschungszentrum Life &amp; Brain (Genomics)
+    </p>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: rgb(81, 81, 81);">
+        <thead>
+          <tr style="background-color: rgb(0, 81, 158); color: #fff; text-align: left;">
+            <th style="padding: 8px 12px; font-weight: 700;">Name</th>
+            <th style="padding: 8px 12px; font-weight: 700;">E-Mail</th>
+            <th style="padding: 8px 12px; font-weight: 700;">Tel. BMZ</th>
+            <th style="padding: 8px 12px; font-weight: 700;">Tel. Genomics</th>
+          </tr>
+        </thead>
+        <tbody>
+          {staff.map((person, idx) => (
+            <tr style={`border-bottom: 1px solid #e5e7eb; background-color: ${idx % 2 === 0 ? '#fff' : '#f9fafb'};`}>
+              <td style="padding: 8px 12px; font-weight: 500; white-space: nowrap;">{person.name}</td>
+              <td style="padding: 8px 12px;">
+                {person.email
+                  ? <a href={`mailto:${person.email}`} style="color: rgb(0, 81, 158);">{person.email}</a>
+                  : ''}
+              </td>
+              <td style="padding: 8px 12px; white-space: nowrap;">{person.telBMZ}</td>
+              <td style="padding: 8px 12px; white-space: nowrap;">{person.telGenomics}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </ContentPage>
+</PageShell>

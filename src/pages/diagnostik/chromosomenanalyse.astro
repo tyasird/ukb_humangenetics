@@ -1,0 +1,85 @@
+---
+import PageShell from '../../components/PageShell.astro'
+import ContentPage from '../../components/ContentPage.astro'
+---
+
+<PageShell
+  activeHref="/diagnostik/"
+  breadcrumbs={[
+    { label: 'Start', href: '/' },
+    { label: 'Diagnostik', href: '/diagnostik/' },
+    { label: 'Zytogenetische Diagnostik' },
+  ]}
+  title="Zytogenetische Diagnostik - Institut für Humangenetik"
+>
+  <ContentPage title="Zytogenetische Diagnostik">
+    <p>
+      Durch eine zytogenetische Diagnostik, also durch die mikroskopische Analyse der Chromosomen,
+      wird der Karyotyp des Menschen dargestellt. Der Karyotyp eines chromosomal unauffälligen
+      Menschen umfasst 46 Chromosomen: 22 Autosomenpaare und zwei Geschlechtschromosomen / Gonosomen
+      (weiblicher Karyotyp: 46,XX, männlicher Karyotyp: 46,XY). Jeweils ein Chromosom eines Paares
+      stammt von der Mutter und eins vom Vater.
+    </p>
+    <p>
+      Chromosomen bestehen hauptsächlich aus DNA, d. h. sie sind Träger der Gene und damit der
+      Erbinformation in Form von ungefähr 3 Milliarden Basenpaaren. Durch eine Analyse der
+      Chromosomen werden Veränderungen in der Zahl und der Struktur der Chromosomen untersucht.
+    </p>
+    <p>
+      Eine Darstellung der Chromosomen ist nur während der Zellteilung in der Metaphase möglich, da
+      sie sich nur dann in ausreichend kondensiertem Zustand befinden. Für eine Chromosomenanalyse
+      werden also teilungsfähige Zellen benötigt. Untersuchungsmaterial sind entweder Lymphozyten
+      des Blutes (Postnatal-Diagnostik) oder Amnion-, Chorionzotten- oder fetale Blutzellen
+      (Pränataldiagnostik). Auch eine Darstellung aus fetalem Abortgewebe ist möglich. Bei speziellen
+      Fragestellungen kann auch eine Analyse von Fibroblasten z.B. aus einer Hautbiopsie erfolgen.
+    </p>
+    <p>
+      Um die Chromosomen analysieren zu können, werden die Zellen erst in Kultur gebracht und nach
+      Präparation für die Karyotypisierung gefärbt (z.B. GTG-Bänderung). Die Untersuchung erfolgt
+      lichtmikroskopisch. Mindestens zehn Metaphasen werden numerisch ausgewertet, aus mindestens
+      fünf Metaphasen werden sog. Karyogramme angefertigt.
+    </p>
+    <p>
+      Numerische Veränderungen der Chromosomen liegen meist als sogenannte Aneuploidien vor, bei
+      denen einzelne Chromosomen fehlen oder zusätzlich vorliegen. Beispiele für lebensfähige
+      Aneuploidien sind: Trisomie 21 (Down-Syndrom), Trisomie 13 (Pätau-Syndrom), Trisomie 18
+      (Edwards-Syndrom), der Karyotyp 47,XXY (Klinefelter-Syndrom) und der Karyotyp 45,X
+      (Ullrich-Turner-Syndrom).
+    </p>
+    <p>
+      Strukturelle Veränderungen der Chromosomen sind Veränderungen im Chromosomenbau innerhalb
+      eines Chromosom (z. B. Inversion, Deletion, Duplikation) oder zwischen verschiedenen
+      Chromosomen (z. B. Translokation).
+    </p>
+    <p>
+      Unsere zytogenetischen Laborleistungen umfassen pränatale und postnatale Chromosomendiagnostik.
+    </p>
+
+    <h2>Hinweise zur Probeneinsendung</h2>
+    <p>
+      Versand bitte sofort (nicht über ein Wochenende), Kühlung nicht notwendig! Alle Proben bitte
+      mit vollständig ausgefülltem Anforderungsschein Zytogenetik versenden. Bitte beschriften Sie
+      jedes Probengefäß mit Namen, Vornamen und Geburtsdatum des Patienten.
+    </p>
+
+    <h2>Postnatal</h2>
+    <p><strong>Lymphozyten:</strong> Ca. 5–10 ml heparinisiertes Vollblut (2–3 ml bei Neugeborenen)</p>
+    <p><strong>Fibroblasten:</strong> Hautstanze mit ca. 1–2 mm Kantenlänge in steriler physiologischer Kochsalzlösung</p>
+    <p><strong>Abortgewebe:</strong> Mindestens 15 bis 20 mg frisches, nicht fixiertes Chorionzottengewebe in steriler physiologischer Kochsalzlösung</p>
+
+    <h2>Pränatal</h2>
+    <p>Alle pränatalen Proben bitte telefonisch anmelden unter: +49 (0)228-287/51058 oder 51059</p>
+    <p><strong>Fruchtwasser:</strong> 15 bis 20 ml steril entnommenes Fruchtwasser.</p>
+    <p><strong>Chorionzotten:</strong> 15 bis 20 mg Chorionzottengewebe in sterilem Transportmedium (z.B. Ham's F10).</p>
+    <p><strong>Nabelschnurblut:</strong> 0,7 bis 1,5 ml heparinisiertes Blut aus der Nabelschnurvene</p>
+
+    <h2>Dauer der Untersuchungen</h2>
+    <ul>
+      <li>Externe Einsender i.d.R. 3–4 Wochen</li>
+      <li>Pränatal – Chorionzotten: Direktpräparation / Kurzzeitkultur: 1 Tag, Langzeitkultur: ca. 2 Wochen</li>
+      <li>Fruchtwasser: FISH-Schnelltest: 1 Tag, Langzeitkultur: i.d.R. 10–14 Tage</li>
+      <li>Nabelschnurblut: 5–8 Tage</li>
+      <li>Postnatal: 3–8 Wochen nach Probeneingang</li>
+    </ul>
+  </ContentPage>
+</PageShell>
